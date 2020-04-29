@@ -62,6 +62,19 @@ flutter:
     - family: Worksans
       fonts:
         - asset: fonts/work-sans.ttf
+    - family: CustomIcons
+      fonts:
+        - asset: fonts/home_feeds_icon.ttf
+    - family: CustomIcons2
+      fonts:
+        - asset: fonts/profile_icon.ttf
+    - family: CustomIcons3
+      fonts:
+        - asset: fonts/audition_icon.ttf
+    - family: PlusIcon2
+      fonts:
+        - asset: fonts/plus_icon.ttf
+     
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

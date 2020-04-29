@@ -1,12 +1,21 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:kmt/screens/final_step.dart';
 import 'package:kmt/screens/login.dart';
 import 'package:kmt/widgets/header_nav.dart';
 import '../styles.dart';
 
-class SignupScreen extends StatelessWidget  {
+class SignupScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  bool isLoading = false;
+  bool leadingIcon = false;
+  @override
+ Widget build(BuildContext context) {
+    return  isLoading ? loadingState(context): Scaffold(
       body:  SingleChildScrollView(
         child: Container(
              decoration: BoxDecoration(
@@ -20,7 +29,7 @@ class SignupScreen extends StatelessWidget  {
            ),
            child: Column(
                 children: <Widget>[
-                  HeaderBar(),
+                  HeaderBar(leadingIcon),
                   welcomeText(),
                   signupForm(context),
                 ])),
@@ -46,7 +55,7 @@ class SignupScreen extends StatelessWidget  {
   }
   Widget signupForm(context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(25.0, 40.0, 20.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(25.0, 40.0, 25.0, 40.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -120,12 +129,14 @@ class SignupScreen extends StatelessWidget  {
                 ),      
                 SizedBox(height: 30.0),
                 GestureDetector(
-                        onTap: () => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => LoginScreen(),
-                          ),
-                        ),
+                        onTap: () { 
+                           setState(() {
+                              isLoading = true;
+                           });
+                          Timer(Duration(seconds: 3), () {
+                            Navigator.pushReplacement(context,MaterialPageRoute(builder: (_) => FinalStepScreen(),),);
+                          });  
+                          },
                         child: Container(
                           alignment: Alignment.center,
                           height: 50.0,
@@ -139,7 +150,6 @@ class SignupScreen extends StatelessWidget  {
                           ),
                         ),
                 ),
-                SizedBox(height: 50.0),
                
         ],
       ),
@@ -173,5 +183,23 @@ class SignupScreen extends StatelessWidget  {
             ),
           ),
     );
+  }
+  Widget loadingState(context) {
+    return Container(
+        height: MediaQuery.of(context).size.height,
+        color: dark,
+        child: Dialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          child:  Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              new CircularProgressIndicator(),
+              SizedBox(height: 20),
+               Text("Creating Account", style: loaderHeaderText,),
+                Text("Get ready for what’s in store for you", style: loaderSubText,)
+            ],
+          )),
+      );
   }
 }

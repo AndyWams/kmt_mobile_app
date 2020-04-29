@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 
 class HeaderBar extends StatelessWidget with PreferredSizeWidget {
+  final bool showLeadingIcon;
+  HeaderBar(this.showLeadingIcon);
+  @override
   Widget build(context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
@@ -10,7 +13,7 @@ class HeaderBar extends StatelessWidget with PreferredSizeWidget {
         child: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0.0,
-            leading: Builder(
+            leading: showLeadingIcon ? null :Builder(
               builder: (BuildContext context) {
                 return leadingIcon(context);
               },

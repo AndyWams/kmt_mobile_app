@@ -3,8 +3,13 @@ import 'package:kmt/screens/signup.dart';
 import 'package:kmt/widgets/header_nav.dart';
 import '../styles.dart';
 
-class LoginScreen extends StatelessWidget  {
-  
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool leadingIcon;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +26,7 @@ class LoginScreen extends StatelessWidget  {
            ),
            child: Column(
                 children: <Widget>[
-                  HeaderBar(),
+                  HeaderBar(leadingIcon= false),
                   welcomeText(),
                   loginForm(context),
                 ])),
@@ -46,7 +51,7 @@ class LoginScreen extends StatelessWidget  {
   }
   Widget loginForm(context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(25.0, 70.0, 20.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(25.0, 70.0, 25.0, 60.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
