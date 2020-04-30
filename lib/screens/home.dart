@@ -6,7 +6,6 @@ import 'package:kmt/screens/message.dart';
 import 'package:kmt/screens/profile.dart';
 import 'package:kmt/widgets/custom_icons.dart/home_feeds_icon.dart';
 import 'package:kmt/widgets/custom_icons.dart/audition_icon.dart';
-import 'package:kmt/widgets/custom_icons.dart/plus_icon2.dart';
 import 'package:kmt/widgets/custom_icons.dart/profile_icon.dart';
 import '../styles.dart';
 
@@ -33,35 +32,46 @@ class _HomeFeedsState extends State<HomeFeeds> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _children[_currentIndex],
-      bottomNavigationBar:BottomNavigationBar(
+      bottomNavigationBar:Theme(
+        data: Theme.of(context).copyWith(
+        //  canvasColor: Colors.green,
+        // primaryColor: Colors.red,
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: light_grey))), 
+              child: BottomNavigationBar(
+          elevation: 0.0,
+          backgroundColor: Colors.transparent,
           type: BottomNavigationBarType.fixed,
           onTap: onTapBar,
           currentIndex: _currentIndex,
-      items: [
-          BottomNavigationBarItem(
-            icon:   BtmIcon(CustomIcons.home_icon, 20.0),
-            title: Text("Home", ),
-          ),
-          BottomNavigationBarItem(
-            icon:  BtmIcon(Icons.textsms, 20.0),
-            title: Text("Messages", ),
-          ),
-          BottomNavigationBarItem(
-            icon:  Icon(PlusIcon2.plus_circle, color: active_feeds, size: 50,),
-            title: Text(''),
-          ),
+        items: [
             BottomNavigationBarItem(
-            icon:  BtmIcon(CustomIcons3.audition_icon, 20.0),
-            title: Text("Auditions", ),
-          ),
+              icon:   BtmIcon(CustomIcons.home_icon, 20.0),
+              title: Text("Home", ),
+            ),
+            BottomNavigationBarItem(
+              icon:  BtmIcon(Icons.textsms, 20.0),
+              title: Text("Messages", ),
+            ),
+            BottomNavigationBarItem(
+              icon:  Icon(Icons.add_circle, color: active_feeds, size: 50,),
+              title: Text(''),
+            ),
               BottomNavigationBarItem(
-            icon: BtmIcon(CustomIcons2.profile_icon, 20.0),
-            title: Text("My Profile"),
-          ),
+              icon:  BtmIcon(CustomIcons3.audition_icon, 20.0),
+              title: Text("Auditions", ),
+            ),
+                BottomNavigationBarItem(
+              icon: BtmIcon(CustomIcons2.profile_icon, 20.0),
+              title: Text("My Profile"),
+            ),
 
-        ]
-      
-    )
+          ]
+        
+    ),
+      )
     );
   }
 }

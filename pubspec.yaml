@@ -74,6 +74,13 @@ flutter:
     - family: PlusIcon2
       fonts:
         - asset: fonts/plus_icon.ttf
+    - family: CustomCommentIcon
+      fonts:
+        - asset: fonts/comment_icon.ttf
+    - family: CustomShareIcon
+      fonts:
+        - asset: fonts/share_icon.ttf
+    
      
   
   # For details regarding fonts from package dependencies,

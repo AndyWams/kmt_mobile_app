@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const purple = Color.fromRGBO(113, 88, 226, 1);
 const active_feeds = Color.fromRGBO(113, 88, 226, 1);
-const soft_grey = Color.fromRGBO(229, 229, 229, 1);
+const soft_grey = Color.fromRGBO(247, 247, 247, 1);
 const inactive_feeds = grey;
 const dark = Color.fromRGBO(2, 7, 10, 0.4);
 const purple50 = Color.fromRGBO(113, 88, 226, 0.28);

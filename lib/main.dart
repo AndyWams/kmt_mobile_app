@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: purple,
       ),
-      home: Onboading(),
+      home: Onboading()
     );
   }
 }
