@@ -35,7 +35,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ])),
     ),
       bottomNavigationBar: loginLink(context)
-      
     );
   }
 
@@ -59,22 +58,33 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-                TextField(
+                  TextField(
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(6.0),
+                      enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1,color: text_field_border),
+                      borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(width: 1,color: purple)
                       ),
                       contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15),
                       fillColor: Colors.white,
                       filled: true,
                       labelText: 'Full Name',
                     ),
-                  ),
+                ),
                 SizedBox(height: 15.0),
                 TextField(
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1,color: text_field_border),
                         borderRadius: BorderRadius.circular(6.0),
-                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(width: 1,color: purple)
+                      ),
                       contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15),
                       fillColor: Colors.white,
                       filled: true,
@@ -85,7 +95,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 TextField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1,color: text_field_border),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(width: 1,color: purple)
+                      ),
                       contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15),
                       fillColor: Colors.white,
                       filled: true,
@@ -97,7 +114,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 15),
                         labelText: 'Area of Interest',
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(6.0))
+                        enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1,color: text_field_border),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(width: 1,color: purple)
+                      ),
                       ),
                     child: DropdownButtonHideUnderline(
                       child:  DropdownButton<String>(

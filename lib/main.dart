@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kmt/screens/feeds.dart';
 import 'package:kmt/screens/home.dart';
+import 'package:kmt/screens/login.dart';
 import 'package:kmt/screens/signup.dart';
 import 'package:kmt/styles.dart';
 import 'screens/onboading.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: purple,
       ),
-      home: Onboading()
+      home: HomeFeeds()
     );
   }
 }

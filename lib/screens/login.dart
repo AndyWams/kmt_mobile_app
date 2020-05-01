@@ -57,7 +57,13 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
                 TextField(
                     decoration: InputDecoration(
-                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(6.0),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1,color: text_field_border),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(width: 1,color: purple)
                       ),
                       contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15),
                       fillColor: Colors.white,
@@ -72,7 +78,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 20.0),
                 TextField(
                     decoration: InputDecoration(
-                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(6.0),
+                     enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1,color: text_field_border),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(width: 1,color: purple)
                       ),
                       contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15),
                       fillColor: Colors.white,
