@@ -204,7 +204,7 @@ class _FinalStepScreenState extends State<FinalStepScreen> {
             child: GestureDetector(
               onTap: () => Navigator.push(context,
                   MaterialPageRoute(
-                    builder: (_) => FeedsHome(),
+                    builder: (_) => HomeFeeds(),
                   ),
               ),
               child: Container(

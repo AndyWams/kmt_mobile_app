@@ -73,6 +73,13 @@ const span = TextStyle(
   color: black,
   fontWeight: FontWeight.bold
 );
+const msg_usr_name= TextStyle(
+  fontFamily: 'Worksans',
+  fontSize: 15,
+  color: black,
+  fontWeight: FontWeight.bold,
+  height: 1.3,
+);
 const small_span = TextStyle(
   fontFamily: 'Worksans',
   fontSize: 13,

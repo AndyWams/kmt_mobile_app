@@ -87,7 +87,7 @@ import 'custom_icons.dart/share_icon.dart';
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
-                     child: Container(
+                    child: Container(
                     child: 
                     Text.rich(
                         TextSpan(text: author, style: TextStyle(color: black),// default text style

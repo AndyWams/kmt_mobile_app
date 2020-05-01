@@ -12,7 +12,7 @@ class _FeedsHomeState extends State<FeedsHome> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
-        body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
               decoration: BoxDecoration(
                 color: offWhite,

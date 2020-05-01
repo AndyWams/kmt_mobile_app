@@ -121,3 +121,31 @@ Widget navItem(context,  pageItem, content) {
 }
 }
 
+Widget sliverAppBar() {
+   return CustomScrollView(
+      slivers: <Widget>[
+                SliverAppBar(
+                  leading: Icon(Icons.arrow_back),
+                  title: Text('Floating app bar'),
+                    floating: true,
+                    pinned: true,
+                    snap: true,
+                    flexibleSpace: Stack(
+                            children: <Widget>[
+                              Positioned.fill(
+                                  child: Image.asset('assets/images/img_6.png', fit: BoxFit.cover,),
+                              ),
+                            ],
+                          ),
+                  expandedHeight: 200,
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) => ListTile(title: Text('Item #$index')),
+                    childCount: 1000,
+                  ),
+                )
+              ],
+  );
+}
+
