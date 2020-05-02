@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "Elon Mosk",
+    "imagePath": "assets/images/img_5.png",
+    "post": {
+      "media": "assets/images/img_1.png",
+      "title": "A day in the sun"
+    },
+    "comments": [
+      {
+        "name": "Sam Stevens",
+        "comment": "Great painting"
+      },
+      {
+        "name": "Leonard Da vicci",
+        "comment": "lol..."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Jeremy Reiner",
+    "imagePath": "assets/images/img_8.png",
+    "post": {
+      "media": "assets/images/img_6.png",
+      "title": "So you think you can sing"
+    },
+    "comments": [
+      {
+        "name": "Jerry Ibe",
+        "comment": "Yes we can sing"
+      },
+      {
+        "name": "Onos Onoriode",
+        "comment": "hahahaha... I can dance too"
+      }
+    ]
+  }
+]

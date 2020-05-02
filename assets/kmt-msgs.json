@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "Marie Winter",
+      "imagePath": "assets/images/img_5.png",
+      "time": "9:40PM",
+      "content": "Happiness is not something readily made"
+    },
+    {
+        "id": 2,
+        "name": "Duran Clayto",
+        "imagePath": "assets/images/img_9.png",
+        "time": "2:00AM",
+        "content": "If you are offered a seat on a rocket ship dont ask what seat! Just get on"
+    },
+    {
+        "id": 3,
+        "name": "Mark Spence",
+        "imagePath": "assets/images/img_10.png",
+        "time": "5:10AM",
+        "content": "If you are offered a seat on a rocket ship dont ask what seat! Just get on"
+    },
+    {
+        "id": 4,
+        "name": "Jason Briggs",
+        "imagePath": "assets/images/img_8.png",
+        "time": "6:40AM",
+        "content": "Hi, nice to meet you."
+    },
+    {
+        "id": 5,
+        "name": "Sussan Samuel",
+        "imagePath": "assets/images/img_1.png",
+        "time": "7:00AM",
+        "content": "Hey, are you online"
+    }
+
+  ]
+  

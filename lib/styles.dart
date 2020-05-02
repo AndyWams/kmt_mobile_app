@@ -45,6 +45,12 @@ const feedsTitle = TextStyle(
   color: purple,
   fontWeight: FontWeight.bold
 );
+const newPostTitle = TextStyle(
+  fontFamily: 'Worksans',
+  fontSize: 18,
+  color: black,
+  fontWeight: FontWeight.w600
+);
 const active_title = TextStyle(
   fontFamily: 'Worksans',
   fontSize: 12,
@@ -98,6 +104,12 @@ const loaderSubText = TextStyle(
   fontSize: 14,
   color: offWhite,
    height: 1.9,
+);
+const errorMsg = TextStyle(
+  fontFamily: 'Worksans',
+  fontWeight: FontWeight.bold,
+  fontSize: 13,
+  color: dark
 );
 const button_primary = TextStyle(  
   fontFamily: 'Worksans',

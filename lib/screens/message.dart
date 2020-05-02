@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kmt/models/msgs-model.dart';
+import 'package:kmt/services/msgs_service.dart';
 import 'package:kmt/styles.dart';
 import 'package:kmt/widgets/feeds_header.dart';
 
@@ -20,14 +22,7 @@ class _MessageScreenState extends State<MessageScreen> {
             FeedsHeader('Messages'),
             searchBar(),
             Expanded(
-              child: ListView.separated(
-              padding: EdgeInsets.symmetric(vertical: 0),
-              separatorBuilder: (context, index) => Divider(color: dark,),
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                return messageList();
-              },
-            ))
+              child: _allMessages())
           ])),
     );
   }
@@ -65,7 +60,7 @@ class _MessageScreenState extends State<MessageScreen> {
     );
   }
 
-  Widget messageList() {
+  Widget messageList(String imgUrl, String name, String content, String time) {
     return Padding(
         padding: const EdgeInsets.only(
         top: 10.0, left: 18.0, right: 18.0, bottom: 10.0),
@@ -80,12 +75,12 @@ class _MessageScreenState extends State<MessageScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                          width: 40.0,
-                          height: 40.0,
+                          width: 50.0,
+                          height: 50.0,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage('assets/images/img_5.png'),
+                              image: AssetImage(imgUrl),
                             ),
                           )),
                       SizedBox(
@@ -99,14 +94,17 @@ class _MessageScreenState extends State<MessageScreen> {
                                 'Marie Winter',
                                 style: msg_usr_name,
                               ),
-                              Text.rich(
-                                  TextSpan(
-                                    text:
-                                        'Happiness is not something ready made erer erer ererer er e r',
-                                    style: TextStyle(color: dark),
-                                  ),
-                                  overflow: TextOverflow.ellipsis),
-                              //  Text('Happiness is not something ready made erer erer ererer er e r'),
+                              Container(
+                                margin: EdgeInsets.only(right: 15),
+                                child: Text.rich(
+                                    TextSpan(
+                                      text:
+                                          content,
+                                      style: TextStyle(color: dark),
+                                    ),
+                                    overflow: TextOverflow.ellipsis
+                                    ),
+                              ),
                             ]),
                       )
                     ]),
@@ -114,7 +112,7 @@ class _MessageScreenState extends State<MessageScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end, children: [
-                Text('9:40PM'),
+                Text(time,  style: TextStyle(color: dark),),
                 // Container(
                 //   margin: EdgeInsets.only(top: 5),
                 //   width: 7,
@@ -126,5 +124,33 @@ class _MessageScreenState extends State<MessageScreen> {
             ],
           ),
     ));
+  }
+  Widget _allMessages() {
+    return FutureBuilder(
+        future: fetchMesages(),
+        builder: (context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  "No messages yet!",
+                  style: errorMsg,
+                ),
+              );
+            }
+            List<Message> totalMsg = snapshot.data ?? [];
+            return ListView.separated(
+              padding: EdgeInsets.symmetric(vertical: 0),
+              separatorBuilder: (context, index) => Divider(color: dark,),
+              itemCount: totalMsg.length,
+              itemBuilder: (BuildContext context, int index) {
+                return messageList('${snapshot.data[index].imagePath}','${snapshot.data[index].name}', '${snapshot.data[index].content}', '${snapshot.data[index].time}');
+              },
+            );
+          } else
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+        });
   }
 }

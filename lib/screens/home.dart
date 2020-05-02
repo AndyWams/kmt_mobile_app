@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kmt/screens/add_new_post.dart';
 import 'package:kmt/screens/auditions.dart';
 import 'package:kmt/screens/feeds.dart';
-import 'package:kmt/screens/friends.dart';
 import 'package:kmt/screens/message.dart';
 import 'package:kmt/screens/profile.dart';
 import 'package:kmt/widgets/custom_icons.dart/home_feeds_icon.dart';
@@ -19,7 +19,7 @@ class _HomeFeedsState extends State<HomeFeeds> {
   final List<Widget> _children = [
     FeedsHome(),
     MessageScreen(),
-    FriendsScreen(),
+    AddPostScreen(),
     AuditionScreen(),
     ProfileScreen()
   ];
@@ -28,11 +28,31 @@ class _HomeFeedsState extends State<HomeFeeds> {
       _currentIndex = index;
     });
   }
+  final PageStorageBucket bucket = PageStorageBucket();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _children[_currentIndex],
-      bottomNavigationBar:Theme(
+    if (_currentIndex == 2) {
+        return Scaffold(
+        body: PageStorage(
+          child: _children[_currentIndex],
+          bucket: bucket,
+        ),
+      );
+    } else {
+      return Scaffold(
+        bottomNavigationBar: _bottomNavigationBar(context, _currentIndex, onTapBar),
+        body: PageStorage(
+          child: _children[_currentIndex],
+          bucket: bucket,
+        ),
+      );
+    }
+  
+  }
+}
+
+Widget _bottomNavigationBar(context, index, fn) {
+  return Theme(
         data: Theme.of(context).copyWith(
         //  canvasColor: Colors.green,
         // primaryColor: Colors.red,
@@ -44,8 +64,8 @@ class _HomeFeedsState extends State<HomeFeeds> {
           elevation: 0.0,
           backgroundColor: Colors.transparent,
           type: BottomNavigationBarType.fixed,
-          onTap: onTapBar,
-          currentIndex: _currentIndex,
+          onTap: fn,
+          currentIndex: index,
         items: [
             BottomNavigationBarItem(
               icon:   BtmIcon(CustomIcons.home_icon, 20.0),
@@ -71,9 +91,7 @@ class _HomeFeedsState extends State<HomeFeeds> {
           ]
         
     ),
-      )
-    );
-  }
+      );
 }
 
 class BtmIcon extends StatelessWidget {
@@ -87,3 +105,5 @@ class BtmIcon extends StatelessWidget {
     );
   }
 }
+
+  
