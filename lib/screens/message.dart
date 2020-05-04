@@ -10,19 +10,27 @@ class MessageScreen extends StatefulWidget {
 }
 
 class _MessageScreenState extends State<MessageScreen> {
-  final List<Widget> messages = [];
+  // final List<Widget> messages = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
           decoration: BoxDecoration(
-          color: Colors.white,
+            color: Colors.white,
           ),
           child: Column(children: <Widget>[
-            FeedsHeader('Messages'),
+            FeedsHeader(
+                'Messages',
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.notifications_active,
+                    color: black,
+                    size: 30,
+                  ),
+                )),
             searchBar(),
-            Expanded(
-              child: _allMessages())
+            Expanded(child: _allMessages())
           ])),
     );
   }
@@ -44,7 +52,8 @@ class _MessageScreenState extends State<MessageScreen> {
                           left: Radius.circular(10),
                           right: Radius.circular(10)),
                     ),
-                    contentPadding:EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                     fillColor: soft_grey,
                     filled: true,
                     hintText: 'Search',
@@ -63,7 +72,7 @@ class _MessageScreenState extends State<MessageScreen> {
   Widget messageList(String imgUrl, String name, String content, String time) {
     return Padding(
         padding: const EdgeInsets.only(
-        top: 10.0, left: 18.0, right: 18.0, bottom: 10.0),
+            top: 10.0, left: 18.0, right: 18.0, bottom: 10.0),
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 10.0),
           child: Row(
@@ -98,33 +107,36 @@ class _MessageScreenState extends State<MessageScreen> {
                                 margin: EdgeInsets.only(right: 15),
                                 child: Text.rich(
                                     TextSpan(
-                                      text:
-                                          content,
+                                      text: content,
                                       style: TextStyle(color: dark),
                                     ),
-                                    overflow: TextOverflow.ellipsis
-                                    ),
+                                    overflow: TextOverflow.ellipsis),
                               ),
                             ]),
                       )
                     ]),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end, children: [
-                Text(time,  style: TextStyle(color: dark),),
-                // Container(
-                //   margin: EdgeInsets.only(top: 5),
-                //   width: 7,
-                //   height: 7,
-                //   decoration:
-                //       BoxDecoration(shape: BoxShape.circle, color: Colors.red),
-                // )
-              ])
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      time,
+                      style: TextStyle(color: dark),
+                    ),
+                    // Container(
+                    //   margin: EdgeInsets.only(top: 5),
+                    //   width: 7,
+                    //   height: 7,
+                    //   decoration:
+                    //       BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+                    // )
+                  ])
             ],
           ),
-    ));
+        ));
   }
+
   Widget _allMessages() {
     return FutureBuilder(
         future: fetchMesages(),
@@ -141,10 +153,16 @@ class _MessageScreenState extends State<MessageScreen> {
             List<Message> totalMsg = snapshot.data ?? [];
             return ListView.separated(
               padding: EdgeInsets.symmetric(vertical: 0),
-              separatorBuilder: (context, index) => Divider(color: dark,),
+              separatorBuilder: (context, index) => Divider(
+                color: dark,
+              ),
               itemCount: totalMsg.length,
               itemBuilder: (BuildContext context, int index) {
-                return messageList('${snapshot.data[index].imagePath}','${snapshot.data[index].name}', '${snapshot.data[index].content}', '${snapshot.data[index].time}');
+                return messageList(
+                    '${snapshot.data[index].imagePath}',
+                    '${snapshot.data[index].name}',
+                    '${snapshot.data[index].content}',
+                    '${snapshot.data[index].time}');
               },
             );
           } else

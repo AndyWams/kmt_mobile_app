@@ -3,8 +3,9 @@ import '../styles.dart';
 
 class FeedsHeader extends StatelessWidget with PreferredSizeWidget {
   final  String title;
+  final  Widget icon;
   @override
-  FeedsHeader(this.title);
+  FeedsHeader(this.title, this.icon);
   Widget build(context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
@@ -18,13 +19,7 @@ class FeedsHeader extends StatelessWidget with PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(title, style: feedsTitle ),
-                GestureDetector(
-                  onTap: (){},
-                  child: Icon(
-                    Icons.notifications_active,
-                    color: black,
-                      size: 30,
-                    ),)
+               icon
             ],
           )),
       ),

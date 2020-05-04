@@ -10,11 +10,63 @@
     "comments": [
       {
         "name": "Sam Stevens",
-        "comment": "Great painting"
+        "avatar": "assets/images/img_12.png",
+        "comment": "Great painting 😍😍😍😍",
+        "time": "14 mins ago"
       },
       {
+        "avatar": "assets/images/img_14.png",
         "name": "Leonard Da vicci",
-        "comment": "lol..."
+        "comment": "lol...",
+        "time": "16 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_8.png",
+        "name": "Emeka Obi",
+        "comment": "😄😄😄😄😄",
+        "time": "20 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_13.png",
+        "name": "Sylvia Jane",
+        "comment": "😄😄😄😄😄😄😄😄😄😄",
+        "time": "24 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_8.png",
+        "name": "Samuel L Jackson",
+        "comment": "Interesting 😄😄😄😄😄",
+        "time": "30 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_15.png",
+        "name": "Ken john",
+        "comment": "😍😍😍😍",
+        "time": "35 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_1.png",
+        "name": "Mathew Harry",
+        "comment": "Beautiful 😍😍😍😍",
+        "time": "40 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_8.png",
+        "name": "Dave Gabriel",
+        "comment": "😍😍😍😍😍😍😍😍",
+        "time": "42 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_2.png",
+        "name": "Isaac Joe",
+        "comment": "I love 😍😍😍😍",
+        "time": "45 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_3.png",
+        "name": "Lukas Lane",
+        "comment": "Graceful",
+        "time": "1 hr ago"
       }
     ]
   },
@@ -28,12 +80,34 @@
     },
     "comments": [
       {
+        "avatar": "assets/images/jerry.png",
         "name": "Jerry Ibe",
-        "comment": "Yes we can sing"
+        "comment": "Yes we can sing",
+        "time": "2 mins ago"
       },
       {
+        "avatar": "assets/images/img_8.png",
         "name": "Onos Onoriode",
-        "comment": "hahahaha... I can dance too"
+        "comment": "hahahaha... I can dance too",
+        "time": "10 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_9.png",
+        "name": "Ken john",
+        "comment": "😍😍😍😍",
+        "time": "12 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_14.png",
+        "name": "Mathew Harry",
+        "comment": "Beautiful 😍😍😍😍",
+        "time": "16 mins ago"
+      },
+      {
+        "avatar": "assets/images/img_10.png",
+        "name": "Dave Gabriel",
+        "comment": "😍😍😍😍😍😍😍😍",
+        "time": "20 mins ago"
       }
     ]
   }

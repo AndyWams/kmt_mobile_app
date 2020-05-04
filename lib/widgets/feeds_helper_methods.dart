@@ -132,21 +132,19 @@ Widget statusPost(String author, String post) {
 }
 
 Widget moreComments(String totalComment) {
-  return GestureDetector(
-    onTap: () {},
-    child: Padding(
-      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-              child: Text('View all $totalComment comments',
-                  style: TextStyle(color: dark))),
-        ],
-      ),
+  return Padding(
+    padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+    child: Row(
+      children: <Widget>[
+        Expanded(
+            child: Text('View all $totalComment comments',
+                style: TextStyle(color: dark))),
+      ],
     ),
   );
 }
 
+//Using For Loop to iterate through a list
 Widget showTopComments(List<Widget> eachitem) {
   List<Widget> commentList = new List<Widget>();
   for (var i = 0; i < eachitem.length; i++) {
@@ -163,6 +161,26 @@ Widget showTopComments(List<Widget> eachitem) {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: commentList),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+//Using map function to iterate through a list
+Widget getTopComments(List<Widget> eachItem) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+    child: Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: new Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: eachItem.map((item) => item).toList()),
           ),
         ],
       ),

@@ -26,7 +26,13 @@ Widget build(BuildContext context) {
             ),
             child: Column(
                 children: <Widget>[
-                 FeedsHeader('Feeds'),
+                 FeedsHeader('Feeds', GestureDetector(
+                  onTap: (){},
+                  child: Icon(
+                    Icons.notifications_active,
+                    color: black,
+                      size: 30,
+                    ),)),
                 ])),
     ),
   

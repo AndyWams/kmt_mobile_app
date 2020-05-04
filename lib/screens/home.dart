@@ -15,7 +15,7 @@ class HomeFeeds extends StatefulWidget {
 }
 
 class _HomeFeedsState extends State<HomeFeeds> {
-   int _currentIndex = 0;
+  int _currentIndex = 0;
   final List<Widget> _children = [
     FeedsHome(),
     MessageScreen(),
@@ -28,11 +28,12 @@ class _HomeFeedsState extends State<HomeFeeds> {
       _currentIndex = index;
     });
   }
+
   final PageStorageBucket bucket = PageStorageBucket();
   @override
   Widget build(BuildContext context) {
     if (_currentIndex == 2) {
-        return Scaffold(
+      return Scaffold(
         body: PageStorage(
           child: _children[_currentIndex],
           bucket: bucket,
@@ -40,58 +41,64 @@ class _HomeFeedsState extends State<HomeFeeds> {
       );
     } else {
       return Scaffold(
-        bottomNavigationBar: _bottomNavigationBar(context, _currentIndex, onTapBar),
+        bottomNavigationBar:
+            _bottomNavigationBar(context, _currentIndex, onTapBar),
         body: PageStorage(
           child: _children[_currentIndex],
           bucket: bucket,
         ),
       );
     }
-  
   }
 }
 
 Widget _bottomNavigationBar(context, index, fn) {
   return Theme(
-        data: Theme.of(context).copyWith(
+    data: Theme.of(context).copyWith(
         //  canvasColor: Colors.green,
         // primaryColor: Colors.red,
-        textTheme: Theme
-            .of(context)
+        textTheme: Theme.of(context)
             .textTheme
-            .copyWith(caption: new TextStyle(color: light_grey))), 
-              child: BottomNavigationBar(
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          type: BottomNavigationBarType.fixed,
-          onTap: fn,
-          currentIndex: index,
+            .copyWith(caption: new TextStyle(color: light_grey))),
+    child: BottomNavigationBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        type: BottomNavigationBarType.fixed,
+        onTap: fn,
+        currentIndex: index,
         items: [
-            BottomNavigationBarItem(
-              icon:   BtmIcon(CustomIcons.home_icon, 20.0),
-              title: Text("Home", ),
+          BottomNavigationBarItem(
+            icon: BtmIcon(CustomIcons.home_icon, 20.0),
+            title: Text(
+              "Home",
             ),
-            BottomNavigationBarItem(
-              icon:  BtmIcon(Icons.textsms, 20.0),
-              title: Text("Messages", ),
+          ),
+          BottomNavigationBarItem(
+            icon: BtmIcon(Icons.textsms, 20.0),
+            title: Text(
+              "Messages",
             ),
-            BottomNavigationBarItem(
-              icon:  Icon(Icons.add_circle, color: active_feeds, size: 50,),
-              title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_circle,
+              color: active_feeds,
+              size: 50,
             ),
-              BottomNavigationBarItem(
-              icon:  BtmIcon(CustomIcons3.audition_icon, 20.0),
-              title: Text("Auditions", ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: BtmIcon(CustomIcons3.audition_icon, 20.0),
+            title: Text(
+              "Auditions",
             ),
-                BottomNavigationBarItem(
-              icon: BtmIcon(CustomIcons2.profile_icon, 20.0),
-              title: Text("My Profile"),
-            ),
-
-          ]
-        
-    ),
-      );
+          ),
+          BottomNavigationBarItem(
+            icon: BtmIcon(CustomIcons2.profile_icon, 20.0),
+            title: Text("My Profile"),
+          ),
+        ]),
+  );
 }
 
 class BtmIcon extends StatelessWidget {
@@ -99,11 +106,6 @@ class BtmIcon extends StatelessWidget {
   final double _size;
   BtmIcon(this._name, this._size);
   Widget build(context) {
-    return Icon(
-      _name,
-      size: _size
-    );
+    return Icon(_name, size: _size);
   }
 }
-
-  

@@ -18,7 +18,13 @@ class _AuditionScreenState extends State<AuditionScreen> {
             ),
             child: Column(
                 children: <Widget>[
-                 FeedsHeader('Auditions'),
+                 FeedsHeader('Auditions',  GestureDetector(
+                  onTap: (){},
+                  child: Icon(
+                    Icons.notifications_active,
+                    color: black,
+                      size: 30,
+                    ),)),
                    Text('Audition Page')
                 ])),
     ),

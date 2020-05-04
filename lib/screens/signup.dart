@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kmt/screens/final_step.dart';
 import 'package:kmt/screens/login.dart';
 import 'package:kmt/widgets/header_nav.dart';
+import 'package:kmt/widgets/loadingState.dart';
 import '../styles.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -16,7 +17,8 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? loadingState(context)
+        ? loadingState(context, "Creating Account",
+            "Get ready for what’s in store for you")
         : Scaffold(
             body: SingleChildScrollView(
               child: Container(
@@ -177,6 +179,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     builder: (_) => FinalStepScreen(),
                   ),
                 );
+                //Revert loading state to false
+                setState(() {
+                  isLoading = false;
+                });
               });
             },
             child: Container(
@@ -225,31 +231,6 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget loadingState(context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      color: dark,
-      child: Dialog(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              new CircularProgressIndicator(),
-              SizedBox(height: 20),
-              Text(
-                "Creating Account",
-                style: loaderHeaderText,
-              ),
-              Text(
-                "Get ready for what’s in store for you",
-                style: loaderSubText,
-              )
-            ],
-          )),
     );
   }
 }
