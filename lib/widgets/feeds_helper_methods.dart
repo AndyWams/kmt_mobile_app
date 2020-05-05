@@ -24,10 +24,6 @@ Widget userInfo(ImageProvider image, String name) {
       ]);
 }
 
-Widget moreOptions() {
-  return GestureDetector(onTap: () {}, child: Icon(Icons.more_horiz));
-}
-
 Widget mediaPost(ImageProvider media, context) {
   return Expanded(
     child: Container(

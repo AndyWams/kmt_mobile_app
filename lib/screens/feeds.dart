@@ -12,7 +12,6 @@ class FeedsHome extends StatefulWidget {
 }
 
 class _FeedsHomeState extends State<FeedsHome> {
-  bool emptyComments = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +67,7 @@ class _FeedsHomeState extends State<FeedsHome> {
                 Container(
                   child: GestureDetector(
                       onTap: () => _showAllComments(context, commentId),
-                      child:
-                          moreComments(emptyComments ? '0' : '$commentCount')),
+                      child: moreComments('$commentCount')),
                 ),
                 getTopComments([
                   dComment(dcomment[0].name, dcomment[0].comment),
@@ -104,10 +102,6 @@ class _FeedsHomeState extends State<FeedsHome> {
               itemBuilder: (BuildContext context, int index) {
                 var totalcomments = totalFeeds[index].comments.length;
                 var id = snapshot.data[index].id;
-
-                if (totalcomments == 0) {
-                  emptyComments = true;
-                }
                 return feedsPost(
                     '${snapshot.data[index].imagePath}',
                     '${snapshot.data[index].name}',
@@ -127,5 +121,65 @@ class _FeedsHomeState extends State<FeedsHome> {
 
   _showAllComments(BuildContext context, int postId) {
     Navigator.pushNamed(context, AllCommentsPageRoute, arguments: postId);
+  }
+
+  Widget moreOptions() {
+    return GestureDetector(
+        onTap: () {
+          _showModal();
+        },
+        child: Icon(Icons.more_horiz));
+  }
+
+  void _showModal() {
+    showModalBottomSheet<void>(
+        backgroundColor: Colors.transparent,
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            height: 250,
+            margin: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+            decoration: BoxDecoration(
+                color: white,
+                borderRadius: new BorderRadius.all(Radius.circular(15))),
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    'Repost Post',
+                    style: TextStyle(
+                        color: red, fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Text('View Profile',
+                        style: TextStyle(
+                            color: black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600)),
+                  ),
+                  Text('Share to',
+                      style: TextStyle(
+                          color: black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600)),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                        color: white,
+                        borderRadius:
+                            new BorderRadius.all(Radius.circular(15.0))),
+                    child: Text('Cancel',
+                        style: TextStyle(
+                            color: red,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold)),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
